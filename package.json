@@ -1,0 +1,16 @@
+{
+  "name": "stock-rates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "good-guy-http": "1.7.3",
+    "mocha": "3.0.2"
+  }
+}
