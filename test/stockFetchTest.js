@@ -1,5 +1,6 @@
 "use strict";
 const stockfetch =  require("../lib/stockfetch");
+const coMocha = require("co-mocha");
 const assert = require("assert");
 
 describe("stockfetch e2e", function() {
