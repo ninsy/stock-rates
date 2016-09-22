@@ -7,7 +7,9 @@ describe("stockfetch e2e", function() {
 
         // Given
 
-        var expectedAssertionCount = 0;
+        // ctrl+w / ctrl+shift+w = increment
+
+        let expectedAssertionCount = 0;
 
         const fetchSymbols = function(fileName) {
             // promise.resolve - wywolywana funkcja jest asynchroniczna
@@ -28,7 +30,10 @@ describe("stockfetch e2e", function() {
             return 'report';
         };
 
-        const fetch = stockfetch(fetchSymbols, fetchPrices, prepareReport);
+        // join lines, inline refactor
+
+        // >= 2 args - use object
+        const fetch = stockfetch({ fetchSymbols, fetchPrices, prepareReport });
 
         // when
         const reportPromise = fetch("someFile");
