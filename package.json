@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --recursive"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "dependencies": {
     "good-guy-http": "1.7.3",
     "mocha": "3.0.2"
+  },
+  "devDependencies": {
+    "co-mocha": "1.1.3"
   }
 }
