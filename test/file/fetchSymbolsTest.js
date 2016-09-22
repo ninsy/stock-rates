@@ -1,9 +1,25 @@
 "use strict";
 const symbolFetch = require("../../lib/file/fetchSymbols");
-const coMocha = require("co-mocha");
 const assert = require("assert");
+const td = require("testdouble");
 
 describe("fetchSymbolsTest", function() {
+
+    it("[mock library] reads file and parses symbols", function *() {
+        const readFile = td.function('readFile');
+        td.when(readFile('someFile')).thenReturn(Promise.resolve("A B"));
+
+        const parseSymbols = td.function('parseSymbols');
+        td.when(parseSymbols("A B")).thenReturn(['A', 'B']);
+
+        const fetch = symbolFetch({readFile, parseSymbols});
+        const symbols = yield fetch("someFile");
+
+        td.verify(readFile("someFile"));
+        td.verify(parseSymbols("A B"));
+        assert.deepEqual(symbols, ['A', 'B']);
+    });
+
     it("shouldFetchSymbols", function *() {
 
         // given
